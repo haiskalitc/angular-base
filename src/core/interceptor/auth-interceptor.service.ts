@@ -20,12 +20,12 @@ export class AuthInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     // add authorization header with jwt token if available
-    console.log(request);
+    // console.log(request);
     return next.handle(request).pipe(
       retry(2),
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          console.log(event);
+          // console.log(event);
         }
         return event;
       }),

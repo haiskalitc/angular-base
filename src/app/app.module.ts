@@ -8,8 +8,8 @@ import { SharedModule } from 'src/shared/modules/modules';
 import { PipeModule } from 'src/shared/pipes/pipes.module';
 
 /* INTERCEPTOR */
-// import { AuthInterceptorService } from 'src/core/interceptor/auth-interceptor.service';
-// import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from 'src/core/interceptor/auth-interceptor.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -33,6 +33,7 @@ const routes: Routes = [
     /* CORE */
     BrowserModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
 
     /* Shared*/
     PipeModule, // pipe
