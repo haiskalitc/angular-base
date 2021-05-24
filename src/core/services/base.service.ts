@@ -10,7 +10,7 @@ const reSend: number = 3;
 })
 export abstract class BaseService {
   public abstract URL: string;
-  public abstract httpOptions = {};
+  public abstract httpOptions: any;
 
   constructor(public http: HttpClient) {}
 
@@ -26,24 +26,24 @@ export abstract class BaseService {
       .pipe(retry(reSend), catchError(this.handleError));
   }
 
-  public post<T>(body: T): Observable<T> {
+  public post<T>(body: T, httpOptions: T): Observable<T> {
     //httpOption
     return this.http
-      .post<T>(this.URL, JSON.stringify(body), this.httpOptions)
+      .post<T>(this.URL, JSON.stringify(body), httpOptions)
       .pipe(retry(reSend), catchError(this.handleError));
   }
 
-  public put<T>(body: T): Observable<T> {
+  public put<T>(body: T, httpOptions: T): Observable<T> {
     // httpOption
     return this.http
-      .put<T>(this.URL, JSON.stringify(body), this.httpOptions)
+      .put<T>(this.URL, JSON.stringify(body), httpOptions)
       .pipe(retry(reSend), catchError(this.handleError));
   }
 
-  public delete<T>(): Observable<T> {
+  public delete<T>(httpOptions: T): Observable<T> {
     // httpOption
     return this.http
-      .delete<T>(this.URL, this.httpOptions)
+      .delete<T>(this.URL, httpOptions)
       .pipe(retry(reSend), catchError(this.handleError));
   }
 

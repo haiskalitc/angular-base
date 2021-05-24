@@ -1,1 +1,3 @@
-import ('./bootstrap');
+import('./polyfills');
+import('./bootstrap');
+import('./vendor');

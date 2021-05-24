@@ -15,12 +15,12 @@ import { AppComponent } from './app.component';
 
 // routes
 const routes: Routes = [
-  // {
-  //   path: 'home',
-  //   canActivate: [AuthGuardService],
-  //   loadChildren: () =>
-  //     import('./pages/home/home.module').then((module) => module.HomeModule),
-  // },
+  {
+    path: 'home',
+    canActivate: [AuthGuardService],
+    loadChildren: () =>
+      import('./pages/home/home.module').then((module) => module.HomeModule),
+  },
   {
     path: '**',
     component: NotFoundComponent,
